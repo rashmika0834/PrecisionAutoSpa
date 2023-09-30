@@ -11,7 +11,7 @@ body {
 
 
 h1 {
-	color: blue;
+	color: #0D6EFD;
 	align-items: center;
 }
 
@@ -29,6 +29,7 @@ h1 {
 	display: flex;
 	padding-left: 5%;
 	padding-right: 5%;
+	margin-bottom: 5%;
 }
 
 .con2-1 {
@@ -53,3 +54,39 @@ h1 {
 .form-control {
 	width: 100vh;
 }
+
+.mainCont{
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+}
+
+.tableMain{
+	padding-left: 10%;
+	padding-right: 10%;
+}
+
+.table-heading{
+	padding: 5vh;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
