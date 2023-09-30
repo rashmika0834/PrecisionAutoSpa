@@ -33,9 +33,11 @@
 <link href="css/index-style.css" rel="stylesheet" />
 </head>
 <body>
+
+	<input type="hidden" id="status" value="<%= request.getAttribute("status")%>">
 	<div class="cont">
 		<h1>Welcome to Precision Auto Spa</h1>
-	
+
 
 	</div>
 	<div class="cont-2">
@@ -54,84 +56,104 @@
 					<button type="submit" class="btn btn-primary">Sign Out</button>
 				</div>
 			</div>
-					<a href="login.jsp">Click Here to Login</a>
+			<a href="login.jsp">Click Here to Login</a>
 		</div>
 
 
 		<div class="con2-2">
 			<h2>Enter Details for a new Booking</h2>
-			<form method="post" action="BkingServlet" class="new-booking" id="new-booking">
-			<div class="row mb-3 mt-5">
-				<label for="colFormLabel" class="col-sm-2 col-form-label">Email</label>
-				<div class="col-sm-10">
-					<input type="email" class="form-control" id="email" name="email" required="required">
+			<form method="post" action="BkingServlet" class="new-booking"
+				id="new-booking">
+				<div class="row mb-3 mt-5">
+					<label for="colFormLabel" class="col-sm-2 col-form-label">Email</label>
+					<div class="col-sm-10">
+						<input type="email" class="form-control" id="email" name="email"
+							required="required">
+					</div>
 				</div>
-			</div>
-			<div class="row mb-3">
-				<label for="colFormLabel" class="col-sm-2 col-form-label">Name</label>
-				<div class="col-sm-10">
-					<input type="text" class="form-control" id="username" name="username">
+				<div class="row mb-3">
+					<label for="colFormLabel" class="col-sm-2 col-form-label">Name</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" id="username"
+							name="username">
+					</div>
 				</div>
-			</div>
-			<div class="row mb-3">
-				<label for="colFormLabel" class="col-sm-2 col-form-label">Contact</label>
-				<div class="col-sm-10">
-					<input type="text" class="form-control" id="contact" name="contact">
+				<div class="row mb-3">
+					<label for="colFormLabel" class="col-sm-2 col-form-label">Contact</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" id="contact"
+							name="contact">
+					</div>
 				</div>
-			</div>
-			<div class="row mb-3">
-				<label for="colFormLabel" class="col-sm-2 col-form-label">Date
-					of Service</label>
-				<div class="col-sm-10">
-					<input type="date" class="form-control" id="date" name="date">
+				<div class="row mb-3">
+					<label for="colFormLabel" class="col-sm-2 col-form-label">Date
+						of Service</label>
+					<div class="col-sm-10">
+						<input type="date" class="form-control" id="date" name="date">
+					</div>
 				</div>
-			</div>
-			<div class="row mb-3">
-				<label for="colFormLabel" class="col-sm-2 col-form-label">Mileage
-					in Km</label>
-				<div class="col-sm-10">
-					<input type="number" class="form-control" id="mileage" name="mileage">
+				<div class="row mb-3">
+					<label for="colFormLabel" class="col-sm-2 col-form-label">Mileage
+						in Km</label>
+					<div class="col-sm-10">
+						<input type="number" class="form-control" id="mileage"
+							name="mileage">
+					</div>
 				</div>
-			</div>
-			<div class="row mb-3">
-				<label for="colFormLabel" class="col-sm-2 col-form-label">Vehicle
-					Reg. Number</label>
-				<div class="col-sm-10">
-					<input type="text" class="form-control" id="vehicle_no" name="vehicle_no">
+				<div class="row mb-3">
+					<label for="colFormLabel" class="col-sm-2 col-form-label">Vehicle
+						Reg. Number</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" id="vehicle_no"
+							name="vehicle_no">
+					</div>
 				</div>
-			</div>
-			
-			<div class="row mb-3">
-				<label for="colFormLabel" class="col-sm-2 col-form-label">Location</label>
-				<div class="col-sm-10">
-					<input type="text" class="form-control" id="location" name="location">
-				</div>
-			</div>
 
-			<label for="colFormLabel" class="col-sm-2 col-form-label">Choose
-				a Time</label>
-			<div class="row mb-3">
-
-				<select class="form-select" id="specificSizeSelect">
-					<option selected>Choose...</option>
-					<option value="1">10AM</option>
-					<option value="2">11AM</option>
-					<option value="3">12PM</option>
-				</select>
-			</div>
-
-			<div class="row mb-3">
-				<label for="colFormLabel" class="col-sm-2 col-form-label">Message(Optional) </label>
-				<div class="col-sm-10">
-					<input type="text" class="form-control" id="message" name="message">
+				<div class="row mb-3">
+					<label for="colFormLabel" class="col-sm-2 col-form-label">Location</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" id="location"
+							name="location">
+					</div>
 				</div>
-			</div>
 
-			<div class="col-12">
-				<button type="submit" class="btn btn-primary">Add Booking</button>
-			</div>
+				<label for="colFormLabel" class="col-sm-2 col-form-label">Choose
+					a Time</label>
+				<div class="row mb-3">
+
+					<select class="form-select" id="specificSizeSelect" name="selectedTime">
+						<option selected>Choose...</option>
+						<option value="10:00:00.00" id="10AM">10AM</option>
+						<option value="11:00:00.00" id="11AM">11AM</option>
+						<option value="12:00:00.00" id="12AM">12PM</option>
+					</select>
+				</div>
+
+				<div class="row mb-3">
+					<label for="colFormLabel" class="col-sm-2 col-form-label">Message(Optional)
+					</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" id="message"
+							name="message">
+					</div>
+				</div>
+
+				<div class="col-12">
+					<button type="submit" class="btn btn-primary">Add Booking</button>
+				</div>
 			</form>
 
 		</div>
+
+		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+		<link rel="stylesheet" href="alert/dist/sweetalert.css">
+		
+		<script type="text/javascript">
+		
+		var status = document.getElementById("status").value;
+		if(status == "success"){
+			swal("Done!","New Booking has Created","success");
+		}
+		</script>
 </body>
 </html>

@@ -34,28 +34,36 @@ public class AddBookingServlet extends HttpServlet {
         String location = request.getParameter("location");
         String message = request.getParameter("message");
         String dateStr = request.getParameter("date");
+        String selectedTimeValue = request.getParameter("selectedTime");
 
         int mileage = Integer.parseInt(mileageStr);
 
-        Date currentDate = new Date();
-        Time currentTime = new Time(currentDate.getTime());
+              
         Connection con = null;
         RequestDispatcher dispatcher = null;
 
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd"); 
+        SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm:ss");
+        
+        Time newTime = null;
+        try {
+            Date parsedTime = timeFormat.parse(selectedTimeValue);
+            newTime = new Time(parsedTime.getTime());
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        
         Date date = null;
         try {
             date = dateFormat.parse(dateStr);
-
-            // Convert java.util.Date to java.sql.Date
             java.sql.Date sqlDate = new java.sql.Date(date.getTime());
 
             Class.forName("com.mysql.cj.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://51.132.137.223:3306/isec_assessment2", "isec", "EUHHaYAmtzbv");
+            con = DriverManager.getConnection("jdbc:mysql://51.132.137.223:3306/isec_assessment2?useSSL=false", "isec", "EUHHaYAmtzbv");
             PreparedStatement pst = con.prepareStatement("INSERT INTO vehicle_service(date, time, location, vehicle_no, mileage, message, username) VALUES (?, ?, ?, ?, ?, ?, ?)");
 
-            pst.setDate(1, sqlDate); // Use sqlDate here
-            pst.setTime(2, currentTime);
+            pst.setDate(1, sqlDate); 
+            pst.setTime(2, newTime);
             pst.setString(3, location);
             pst.setString(4, vehicle_no);
             pst.setInt(5, mileage);
