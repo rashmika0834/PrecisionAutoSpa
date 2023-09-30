@@ -9,4 +9,24 @@
     <welcome-file>default.jsp</welcome-file>
     <welcome-file>default.htm</welcome-file>
   </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>BookingServlet</display-name>
+    <servlet-name>BookingServlet</servlet-name>
+    <servlet-class>BookingServlet.BookingServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>BookingServlet</servlet-name>
+    <url-pattern>/BookingServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AddBookingServlet</display-name>
+    <servlet-name>AddBookingServlet</servlet-name>
+    <servlet-class>com.registration.AddBookingServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddBookingServlet</servlet-name>
+    <url-pattern>/AddBookingServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

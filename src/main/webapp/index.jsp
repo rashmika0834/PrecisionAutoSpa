@@ -35,6 +35,7 @@
 <body>
 	<div class="cont">
 		<h1>Welcome to Precision Auto Spa</h1>
+	
 
 	</div>
 	<div class="cont-2">
@@ -59,43 +60,51 @@
 
 		<div class="con2-2">
 			<h2>Enter Details for a new Booking</h2>
+			<form method="post" action="BkingServlet" class="new-booking" id="new-booking">
 			<div class="row mb-3 mt-5">
 				<label for="colFormLabel" class="col-sm-2 col-form-label">Email</label>
 				<div class="col-sm-10">
-					<input type="email" class="form-control" id="colFormLabel">
+					<input type="email" class="form-control" id="email" name="email" required="required">
 				</div>
 			</div>
 			<div class="row mb-3">
 				<label for="colFormLabel" class="col-sm-2 col-form-label">Name</label>
 				<div class="col-sm-10">
-					<input type="text" class="form-control" id="colFormLabel">
+					<input type="text" class="form-control" id="username" name="username">
 				</div>
 			</div>
 			<div class="row mb-3">
 				<label for="colFormLabel" class="col-sm-2 col-form-label">Contact</label>
 				<div class="col-sm-10">
-					<input type="text" class="form-control" id="colFormLabel">
+					<input type="text" class="form-control" id="contact" name="contact">
 				</div>
 			</div>
 			<div class="row mb-3">
 				<label for="colFormLabel" class="col-sm-2 col-form-label">Date
 					of Service</label>
 				<div class="col-sm-10">
-					<input type="date" class="form-control" id="colFormLabel">
+					<input type="date" class="form-control" id="date" name="date">
 				</div>
 			</div>
 			<div class="row mb-3">
 				<label for="colFormLabel" class="col-sm-2 col-form-label">Mileage
 					in Km</label>
 				<div class="col-sm-10">
-					<input type="number" class="form-control" id="colFormLabel">
+					<input type="number" class="form-control" id="mileage" name="mileage">
 				</div>
 			</div>
 			<div class="row mb-3">
 				<label for="colFormLabel" class="col-sm-2 col-form-label">Vehicle
 					Reg. Number</label>
 				<div class="col-sm-10">
-					<input type="text" class="form-control" id="colFormLabel">
+					<input type="text" class="form-control" id="vehicle_no" name="vehicle_no">
+				</div>
+			</div>
+			
+			<div class="row mb-3">
+				<label for="colFormLabel" class="col-sm-2 col-form-label">Location</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" id="location" name="location">
 				</div>
 			</div>
 
@@ -114,13 +123,14 @@
 			<div class="row mb-3">
 				<label for="colFormLabel" class="col-sm-2 col-form-label">Message(Optional) </label>
 				<div class="col-sm-10">
-					<input type="text" class="form-control" id="colFormLabel">
+					<input type="text" class="form-control" id="message" name="message">
 				</div>
 			</div>
 
 			<div class="col-12">
 				<button type="submit" class="btn btn-primary">Add Booking</button>
 			</div>
+			</form>
 
 		</div>
 </body>
