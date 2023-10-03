@@ -41,9 +41,13 @@ public class AddBookingServlet extends HttpServlet {
               
         Connection con = null;
         RequestDispatcher dispatcher = null;
+        
+        
 
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd"); 
         SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm:ss");
+        
+        
         
         Time newTime = null;
         try {
@@ -52,6 +56,8 @@ public class AddBookingServlet extends HttpServlet {
         } catch (ParseException e) {
             e.printStackTrace();
         }
+        
+        
         
         Date date = null;
         try {
@@ -89,4 +95,11 @@ public class AddBookingServlet extends HttpServlet {
             }
         }
     }
+    
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		
+		
+		
+	}
 }

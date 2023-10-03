@@ -1,5 +1,29 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.Connection"%>
+
+
+<%
+String id = request.getParameter("booking_id");
+String driver = "com.mysql.cj.jdbc.Driver";
+String connectionUrl = "jdbc:mysql://51.132.137.223:3306/isec_assessment2";
+String userid = "isec";
+String password = "EUHHaYAmtzbv";
+
+try {
+	Class.forName(driver);
+} catch (ClassNotFoundException e) {
+	e.printStackTrace();
+}
+Connection connection = null;
+Statement statement = null;
+ResultSet resultSet = null;
+%>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -142,7 +166,7 @@
 					</div>
 
 					<div class="col-12">
-						<button type="" class="btn btn-primary">Add Booking</button>
+						<button type="submit" class="btn btn-primary">Add Booking</button>
 					</div>
 				</form>
 
@@ -165,11 +189,13 @@
 			<div class="table-heading">
 				<h1>Upcoming Bookings</h1>
 			</div>
-			
+
 			<table class="table">
+
+
 				<thead class="table-dark">
 					<tr>
-						<th scope="col">#</th>
+						<th scope="col">Booking ID</th>
 						<th scope="col">Name</th>
 						<th scope="col">DOS</th>
 						<th scope="col">Mileage</th>
@@ -178,37 +204,46 @@
 
 					</tr>
 				</thead>
+
+				<%
+				try {
+					connection = DriverManager.getConnection(connectionUrl, userid, password);
+					statement = connection.createStatement();
+					String sql = "select * from vehicle_service where username = 'wfr'";
+					resultSet = statement.executeQuery(sql);
+					while (resultSet.next()) {
+
+						String bookingId = resultSet.getString("booking_id");
+						String username = resultSet.getString("username");
+						String mileage = resultSet.getString("mileage");
+						String location = resultSet.getString("location");
+						String date = resultSet.getString("date");
+				%>
+
 				<tbody>
 					<tr>
-						<th scope="row">1</th>
-						<td>Mark</td>
-						<td>Otto</td>
-						<td>@mdo</td>
-						<td>Thornton</td>
-						<td><button type="" class="btn btn-danger">Delete
-								Booking</button></td>
+						<th scope="row"><%=bookingId%></th>
+						<td><%=username%></td>
+						<td><%=date%></td>
+						<td><%=mileage%></td>
+						<td><%=location%></td>
+						<td>
+							<form method="post" action="DltBookingServlet">
+								<input type="hidden" name="booking_id" value="<%=bookingId%>">
+								<button type="submit" class="btn btn-danger">Delete
+									Booking</button>
+							</form>
+						</td>
 
 					</tr>
-					<tr>
-						<th scope="row">2</th>
-						<td>Jacob</td>
-						<td>Thornton</td>
-						<td>@fat</td>
-						<td>@mdo</td>
-						<td><button type="" class="btn btn-danger">Delete
-								Booking</button></td>
 
-					</tr>
-					<tr>
-						<th scope="row">3</th>
-						<td>Larry</td>
-						<td>@twitter</td>
-						<td>@fat</td>
-						<td>@fat</td>
-						<td><button type="" class="btn btn-danger">Delete
-								Booking</button></td>
+					<%
+					}
+					} catch (Exception e) {
+					e.printStackTrace();
+					}
+					%>
 
-					</tr>
 				</tbody>
 			</table>
 		</div>

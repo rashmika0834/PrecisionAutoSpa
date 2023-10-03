@@ -29,4 +29,34 @@
     <servlet-name>AddBookingServlet</servlet-name>
     <url-pattern>/AddBookingServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>bookingTable</display-name>
+    <servlet-name>bookingTable</servlet-name>
+    <servlet-class>com.getBookings.bookingTable</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>bookingTable</servlet-name>
+    <url-pattern>/bookingTable</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>bookingsTable</display-name>
+    <servlet-name>bookingsTable</servlet-name>
+    <servlet-class>getBookings.bookingsTable</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>bookingsTable</servlet-name>
+    <url-pattern>/bookingsTable</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DeleteBookingServlet</display-name>
+    <servlet-name>DeleteBookingServlet</servlet-name>
+    <servlet-class>com.deleteBookings.DeleteBookingServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteBookingServlet</servlet-name>
+    <url-pattern>/DeleteBookingServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -18,7 +18,7 @@ h1 {
 .cont {
 	display: flex;
 	flex-direction: column;
-	background-color: gray;
+	background-color: black;
 	text-align: center;
 	justify-content: center;
 	height: 12vh;
