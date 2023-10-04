@@ -33,7 +33,7 @@ public class DeleteBookingServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		
-		 String bookingId = request.getParameter("booking_id");
+			String bookingId = request.getParameter("booking_id");
 	        String driver = "com.mysql.cj.jdbc.Driver";
 	        String connectionUrl = "jdbc:mysql://51.132.137.223:3306/isec_assessment2";
 	        String userid = "isec";
