@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"
-
-	%>
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,8 +33,10 @@
 
 		<form class="app-login-form" role="form" action="" method="post"
 			autocomplete="off">
-			<input type="submit" id="btn-login" class="btn btn-info"
-				value="Log In">
+			<input
+				onclick="window.location.href='https://api.asgardeo.io/t/rashmika/oauth2/authorize?response_type=code&client_id=JwZ1HxKs2I7YBnz6DWKNwZyR1bca&scope=openid%20address%20email%20phone%20profile&redirect_uri=http://localhost:8090/PrecisionAutoSpa/Authorization.jsp
+'"
+				type="submit" id="btn-login" class="btn btn-info" value="Log In">
 		</form>
 	</div>
 
