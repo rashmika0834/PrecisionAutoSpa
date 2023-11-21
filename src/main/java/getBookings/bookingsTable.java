@@ -1,20 +1,18 @@
 package getBookings;
 
-import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.ArrayList;
-import java.util.List;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class bookingsTable
+ *  implementation class bookingsTable
  */
 public class bookingsTable extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -38,7 +36,7 @@ public class bookingsTable extends HttpServlet {
 		try {
 			
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			Connection conn = DriverManager.getConnection("jdbc:mysql://51.132.137.223:3306/isec_assessment2?useSSL=false", "isec", "EUHHaYAmtzbv");
+			Connection conn = DriverManager.getConnection("jdbc:mysql://172.187.178.153:3306/isec_assessment2?useSSL=false", "isec", "EUHHaYAmtzbv");
 			PreparedStatement pst = conn.prepareStatement("SELECT * FROM vehicle_service WHERE username = ?");
 			
 			ResultSet resultSet = pst.executeQuery();

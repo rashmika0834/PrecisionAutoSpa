@@ -1,62 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://jakarta.ee/xml/ns/jakartaee" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd" id="WebApp_ID" version="4.0">
-  <display-name>PrecisionAutoSpa</display-name>
+<?xml version="1.0" encoding="UTF-8"?><web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
+  <display-name>testing</display-name>
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
-    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>login.jsp</welcome-file>
     <welcome-file>index.htm</welcome-file>
     <welcome-file>default.html</welcome-file>
     <welcome-file>default.jsp</welcome-file>
     <welcome-file>default.htm</welcome-file>
   </welcome-file-list>
-  <servlet>
-    <description></description>
-    <display-name>BookingServlet</display-name>
-    <servlet-name>BookingServlet</servlet-name>
-    <servlet-class>BookingServlet.BookingServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>BookingServlet</servlet-name>
-    <url-pattern>/BookingServlet</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>AddBookingServlet</display-name>
-    <servlet-name>AddBookingServlet</servlet-name>
-    <servlet-class>com.registration.AddBookingServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>AddBookingServlet</servlet-name>
-    <url-pattern>/AddBookingServlet</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>bookingTable</display-name>
-    <servlet-name>bookingTable</servlet-name>
-    <servlet-class>com.getBookings.bookingTable</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>bookingTable</servlet-name>
-    <url-pattern>/bookingTable</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>bookingsTable</display-name>
-    <servlet-name>bookingsTable</servlet-name>
-    <servlet-class>getBookings.bookingsTable</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>bookingsTable</servlet-name>
-    <url-pattern>/bookingsTable</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>DeleteBookingServlet</display-name>
-    <servlet-name>DeleteBookingServlet</servlet-name>
-    <servlet-class>com.deleteBookings.DeleteBookingServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>DeleteBookingServlet</servlet-name>
-    <url-pattern>/DeleteBookingServlet</url-pattern>
-  </servlet-mapping>
+  <session-config>
+    <session-timeout>30</session-timeout> <!-- Set to a reasonable value in minutes -->
+</session-config>
 </web-app>

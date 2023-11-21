@@ -1,17 +1,18 @@
 package com.deleteBookings;
 
-import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 /**
- * Servlet implementation class DeleteBookingServlet
+ *  implementation class DeleteBookingServlet
  */
 
 
@@ -35,7 +36,7 @@ public class DeleteBookingServlet extends HttpServlet {
 		
 			String bookingId = request.getParameter("booking_id");
 	        String driver = "com.mysql.cj.jdbc.Driver";
-	        String connectionUrl = "jdbc:mysql://51.132.137.223:3306/isec_assessment2";
+	        String connectionUrl = "jdbc:mysql://172.187.178.153:3306/isec_assessment2";
 	        String userid = "isec";
 	        String password = "EUHHaYAmtzbv";
 

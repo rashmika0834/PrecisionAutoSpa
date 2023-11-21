@@ -9,7 +9,7 @@
 <%
 String id = request.getParameter("booking_id");
 String driver = "com.mysql.cj.jdbc.Driver";
-String connectionUrl = "jdbc:mysql://51.132.137.223:3306/isec_assessment2";
+String connectionUrl = "jdbc:mysql://172.187.178.153:3306/isec_assessment2";
 String userid = "isec";
 String password = "EUHHaYAmtzbv";
 
@@ -53,6 +53,21 @@ ResultSet resultSet = null;
 	integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
 	crossorigin="anonymous"></script>
 
+			<script>
+    function handleLogout() {
+        // Add logic here to handle any client-side operations before logout
+
+        // Example: Clear localStorage, session storage, or perform other tasks if needed
+        localStorage.removeItem('access_token');
+        localStorage.removeItem('id_token');
+
+        // Redirect to login.jsp after logout
+        window.location.href = 'login.jsp';
+
+        // Return false to prevent the form from being submitted to asgardeo.io
+        return false;
+    }
+</script>
 
 <link href="css/index-style.css" rel="stylesheet" />
 </head>
@@ -70,8 +85,8 @@ ResultSet resultSet = null;
 
 			<div class="con2-1">
 				<h2>User Info</h2>
-				<div class="card" style="width: 22rem;">
-					<div class="card-header">Name : Rashmika</div>
+				<div class="card" style="width: 22rem;" id="infoTable">
+					<div class="card-header" id="userName">Name : Rashmika</div>
 					<ul class="list-group list-group-flush">
 						<li class="list-group-item">Email :
 							rashmikapramodya@gmail.com</li>
@@ -79,10 +94,19 @@ ResultSet resultSet = null;
 						<li class="list-group-item">Country : SriLanka</li>
 					</ul>
 					<div class="col-12">
-						<button type="submit" class="btn btn-primary">Sign Out</button>
+					
+		<form class="app-login-form" role="form" 
+		action="https://api.asgardeo.io/t/rashmika/oidc/logout" 
+		method="post" autocomplete="off" >
+		
+			<input type="submit" id="btn-login" class="btn btn-primary" value="Sign out">
+		</form>
+					
+					
+					<%--<button type="button" class="" id="SignOut" onclick="signOut()">Sign Out</button> --%>	 
 					</div>
 				</div>
-				<a href="login.jsp">Click Here to Login</a>
+				
 			</div>
 
 
@@ -90,27 +114,13 @@ ResultSet resultSet = null;
 				<h2>Enter Details for a new Booking</h2>
 				<form method="post" action="BkingServlet" class="new-booking"
 					id="new-booking">
-					<div class="row mb-3 mt-5">
-						<label for="colFormLabel" class="col-sm-2 col-form-label">Email</label>
-						<div class="col-sm-10">
-							<input type="email" class="form-control" id="email" name="email"
-								required="required">
-						</div>
-					</div>
-					<div class="row mb-3">
-						<label for="colFormLabel" class="col-sm-2 col-form-label">Name</label>
-						<div class="col-sm-10">
-							<input type="text" class="form-control" id="username"
+			
+						
+						
+							<input type="hidden" class="form-control" id="username"
 								name="username">
-						</div>
-					</div>
-					<div class="row mb-3">
-						<label for="colFormLabel" class="col-sm-2 col-form-label">Contact</label>
-						<div class="col-sm-10">
-							<input type="text" class="form-control" id="contact"
-								name="contact">
-						</div>
-					</div>
+					
+				
 					<div class="row mb-3">
 						<label for="colFormLabel" class="col-sm-2 col-form-label">Date
 							of Service</label>
@@ -181,6 +191,8 @@ ResultSet resultSet = null;
 					swal("Done!", "New Booking has Created", "success");
 				}
 			</script>
+			
+
 
 		</div>
 
@@ -209,7 +221,7 @@ ResultSet resultSet = null;
 				try {
 					connection = DriverManager.getConnection(connectionUrl, userid, password);
 					statement = connection.createStatement();
-					String sql = "select * from vehicle_service where username = 'wfr'";
+					String sql = "select * from vehicle_service where username = 'hello@gmail.com '";
 					resultSet = statement.executeQuery(sql);
 					while (resultSet.next()) {
 
@@ -254,4 +266,29 @@ ResultSet resultSet = null;
 
 
 </body>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Make a request to the userinfo API
+        fetch("https://api.asgardeo.io/t/rashmika/oauth2/userinfo", {
+            method: "GET",
+            headers: {
+                "Authorization": "Bearer " + localStorage.getItem('access_token') // Assuming you have an access_token stored in localStorage
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            // Log the retrieved data to the console
+            console.log("User Info:", data);
+
+            // Now you can use the 'data' object to update your HTML with the user information
+            // For example:
+            var nameElement = document.querySelector("#infoTable .card-header");
+            nameElement.textContent = "Name: " + data.name; // Replace 'name' with the actual property name in your userinfo response
+        })
+        .catch(error => console.error("Error fetching userinfo:", error));
+    });
+</script>
+
+
 </html>
