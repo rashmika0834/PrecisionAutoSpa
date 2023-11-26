@@ -4,6 +4,9 @@
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.Connection"%>
+<%@ page import="java.io.BufferedReader, java.io.InputStreamReader, java.net.HttpURLConnection, java.net.URL, java.io.OutputStream" %>
+<%@ page import="java.sql.DriverManager, java.sql.ResultSet, java.sql.Statement, java.sql.Connection" %>
+
 
 
 <%
@@ -21,6 +24,12 @@ try {
 Connection connection = null;
 Statement statement = null;
 ResultSet resultSet = null;
+
+HttpSession loginSession = request.getSession(false);
+if (loginSession == null || loginSession.getAttribute("isLoggedIn") == null || !(boolean)loginSession.getAttribute("isLoggedIn")) {
+   response.sendRedirect("login.jsp");
+}
+
 %>
 
 
