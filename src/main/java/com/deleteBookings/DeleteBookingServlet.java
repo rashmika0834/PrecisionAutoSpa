@@ -25,7 +25,7 @@ public class DeleteBookingServlet extends HttpServlet {
      */
     public DeleteBookingServlet() {
         super();
-        // TODO Auto-generated constructor stub
+        
     }
 
 	/**

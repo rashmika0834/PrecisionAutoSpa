@@ -51,7 +51,6 @@ if (loginSession == null || loginSession.getAttribute("isLoggedIn") == null || !
 	href="https://fonts.googleapis.com/css2?family=Manrope:wght@800&display=swap"
 	rel="stylesheet">
 
-<!-- Bootstrap link-->
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -62,18 +61,14 @@ if (loginSession == null || loginSession.getAttribute("isLoggedIn") == null || !
 	integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
 	crossorigin="anonymous"></script>
 
-			<script>
+ <script>
     function handleLogout() {
-        // Add logic here to handle any client-side operations before logout
-
-        // Example: Clear localStorage, session storage, or perform other tasks if needed
+     
         localStorage.removeItem('access_token');
         localStorage.removeItem('id_token');
 
-        // Redirect to login.jsp after logout
         window.location.href = 'login.jsp';
 
-        // Return false to prevent the form from being submitted to asgardeo.io
         return false;
     }
 </script>
@@ -95,13 +90,11 @@ if (loginSession == null || loginSession.getAttribute("isLoggedIn") == null || !
 			<div class="con2-1">
 				<h2>User Info</h2>
 				<div class="card" style="width: 22rem;" id="infoTable">
-					<div class="card-header" id="userName">Name :  </div>
-					<ul class="list-group list-group-flush">
-						<li class="list-group-item">Email :
-							rashmikapramodya@gmail.com</li>
-						<li class="list-group-item">Contact : 0719133821</li>
-						<li class="list-group-item">Country : SriLanka</li>
-					</ul>
+					<div class="card-header" id="userName">First Name : <c:out value="${data.given_name}" /></div>
+					<div class="card-header" id="lastName">Last Name : <c:out value="${data.family_name}" /> </div>
+					<div class="card-header" id="email">Email : <c:out value="${data.email}" /></div>
+					<div class="card-header" id="contact">Contact Number: <c:out value="${data.phone_number}" /></div>
+					<div class="card-header" id="country">Country : <c:out value="${data.address.country}" /> </div>
 					<div class="col-12">
 					
 		<form class="app-login-form" role="form" 
@@ -111,7 +104,7 @@ if (loginSession == null || loginSession.getAttribute("isLoggedIn") == null || !
 			<input type="submit" id="btn-login" class="btn btn-primary" value="Sign out">
 		</form>
 					
-					 
+			
 					</div>
 				</div>
 				
@@ -125,45 +118,44 @@ if (loginSession == null || loginSession.getAttribute("isLoggedIn") == null || !
 			
 						
 						
-							<input type="hidden" class="form-control" id="username"
-								name="username">
+							<input type="hidden" class="form-control" id="formUsername" name="username">
 					
 				
 					<div class="row mb-3">
-						<label for="colFormLabel" class="col-sm-2 col-form-label">Date	of Service</label>
+						<label for="colFormLabel" class="col-sm-2 col-form-label">Date
+							of Service</label>
 						<div class="col-sm-10">
-							<input type="date" class="form-control" id="date" name="date">
+							<input type="date" class="form-control" id="date" name="date" required="required">
 						</div>
 					</div>
 					<div class="row mb-3">
-						<label for="colFormLabel" class="col-sm-2 col-form-label"> in Km</label>
+						<label for="colFormLabel" class="col-sm-2 col-form-label">Mileage
+							in Km</label>
 						<div class="col-sm-10">
-							<input type="number" class="form-control" id="mileage"
-								name="mileage">
+							<input type="number" class="form-control" id="mileage" name="mileage" required="required">
 						</div>
 					</div>
 					<div class="row mb-3">
-						<label for="colFormLabel" class="col-sm-2 col-form-label">Vehicle Reg. Number</label>
+						<label for="colFormLabel" class="col-sm-2 col-form-label">Vehicle
+							Reg. Number</label>
 						<div class="col-sm-10">
-							<input type="text" class="form-control" id="vehicle_no"
-								name="vehicle_no">
+							<input type="text" class="form-control" id="vehicle_no" name="vehicle_no" required="required">
 						</div>
 					</div>
 
 					<div class="row mb-3">
 						<label for="colFormLabel" class="col-sm-2 col-form-label">Location</label>
 						<div class="col-sm-10">
-							<input type="text" class="form-control" id="location"
-								name="location">
+							<input type="text" class="form-control" id="location" name="location" required="required">
 						</div>
 					</div>
 
-					<label for="colFormLabel" class="col-sm-2 col-form-label">Choose
-						a Time</label>
+					
 					<div class="row mb-3">
-
+						<label for="colFormLabel" class="col-sm-2 col-form-label" >Choose
+						a Time</label>
 						<select class="form-select" id="specificSizeSelect"
-							name="selectedTime">
+							name="selectedTime" required="required">
 							<option selected>Choose...</option>
 							<option value="10:00:00.00" id="10AM">10AM</option>
 							<option value="11:00:00.00" id="11AM">11AM</option>
@@ -172,7 +164,7 @@ if (loginSession == null || loginSession.getAttribute("isLoggedIn") == null || !
 					</div>
 
 					<div class="row mb-3">
-						<label for="colFormLabel" class="col-sm-2 col-form-label">Message(Optional)
+						<label for="colFormLabel" class="col-sm-2 col-form-label">Message
 						</label>
 						<div class="col-sm-10">
 							<input type="text" class="form-control" id="message"
@@ -204,7 +196,7 @@ if (loginSession == null || loginSession.getAttribute("isLoggedIn") == null || !
 
 		<div class="tableMain">
 			<div class="table-heading">
-				<h1>Upcoming Bookings</h1>
+				<h1>All Bookings</h1>
 			</div>
 
 			<table class="table">
@@ -226,7 +218,7 @@ if (loginSession == null || loginSession.getAttribute("isLoggedIn") == null || !
 				try {
 					connection = DriverManager.getConnection(connectionUrl, userid, password);
 					statement = connection.createStatement();
-					String sql = "select * from vehicle_service where username = 'hello@gmail.com '";
+					String sql = "select * from vehicle_service where username = 'hello@gmail.com'";
 					resultSet = statement.executeQuery(sql);
 					while (resultSet.next()) {
 
@@ -274,22 +266,28 @@ if (loginSession == null || loginSession.getAttribute("isLoggedIn") == null || !
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
-        // Make a request to the userinfo API
+      
         fetch("https://api.asgardeo.io/t/rashmika/oauth2/userinfo", {
+        	
             method: "GET",
             headers: {
-                "Authorization": "Bearer " + localStorage.getItem('access_token') // Assuming you have an access_token stored in localStorage
+                "Authorization": "Bearer " + localStorage.getItem('access_token') 
             }
         })
         .then(response => response.json())
         .then(data => {
-            // Log the retrieved data to the console
+           
             console.log("User Info:", data);
-
-            // Now you can use the 'data' object to update your HTML with the user information
-            // For example:
-            var nameElement = document.querySelector("#infoTable .card-header");
-            nameElement.textContent = "Name: " + data.name; // Replace 'name' with the actual property name in your userinfo response
+            
+            document.getElementById("formUsername").value = data.username;
+            
+            document.getElementById("userName").textContent = "First Name : " + data.given_name;
+            document.getElementById("lastName").textContent = "Last Name : " + data.family_name;
+            document.getElementById("email").textContent = "Email : " + data.username;
+            document.getElementById("contact").textContent = "Contact : " + data.phone_number;
+            document.getElementById("country").textContent = "Country : " + data.address.country;
+          
+         
         })
         .catch(error => console.error("Error fetching userinfo:", error));
     });
