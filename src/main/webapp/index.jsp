@@ -95,7 +95,7 @@ if (loginSession == null || loginSession.getAttribute("isLoggedIn") == null || !
 			<div class="con2-1">
 				<h2>User Info</h2>
 				<div class="card" style="width: 22rem;" id="infoTable">
-					<div class="card-header" id="userName">Name : Rashmika</div>
+					<div class="card-header" id="userName">Name :  </div>
 					<ul class="list-group list-group-flush">
 						<li class="list-group-item">Email :
 							rashmikapramodya@gmail.com</li>
@@ -111,8 +111,7 @@ if (loginSession == null || loginSession.getAttribute("isLoggedIn") == null || !
 			<input type="submit" id="btn-login" class="btn btn-primary" value="Sign out">
 		</form>
 					
-					
-					<%--<button type="button" class="" id="SignOut" onclick="signOut()">Sign Out</button> --%>	 
+					 
 					</div>
 				</div>
 				
@@ -131,23 +130,20 @@ if (loginSession == null || loginSession.getAttribute("isLoggedIn") == null || !
 					
 				
 					<div class="row mb-3">
-						<label for="colFormLabel" class="col-sm-2 col-form-label">Date
-							of Service</label>
+						<label for="colFormLabel" class="col-sm-2 col-form-label">Date	of Service</label>
 						<div class="col-sm-10">
 							<input type="date" class="form-control" id="date" name="date">
 						</div>
 					</div>
 					<div class="row mb-3">
-						<label for="colFormLabel" class="col-sm-2 col-form-label">Mileage
-							in Km</label>
+						<label for="colFormLabel" class="col-sm-2 col-form-label"> in Km</label>
 						<div class="col-sm-10">
 							<input type="number" class="form-control" id="mileage"
 								name="mileage">
 						</div>
 					</div>
 					<div class="row mb-3">
-						<label for="colFormLabel" class="col-sm-2 col-form-label">Vehicle
-							Reg. Number</label>
+						<label for="colFormLabel" class="col-sm-2 col-form-label">Vehicle Reg. Number</label>
 						<div class="col-sm-10">
 							<input type="text" class="form-control" id="vehicle_no"
 								name="vehicle_no">
