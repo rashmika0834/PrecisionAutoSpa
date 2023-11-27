@@ -1,3 +1,4 @@
+<%@page import="java.util.Properties"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@page import="java.sql.DriverManager"%>
@@ -15,6 +16,7 @@ String driver = "com.mysql.cj.jdbc.Driver";
 String connectionUrl = "jdbc:mysql://172.187.178.153:3306/isec_assessment2";
 String userid = "isec";
 String password = "EUHHaYAmtzbv";
+
 
 try {
 	Class.forName(driver);
@@ -154,7 +156,7 @@ if (loginSession == null || loginSession.getAttribute("isLoggedIn") == null || !
 					<div class="row mb-3">
 						<label for="colFormLabel" class="col-sm-2 col-form-label" >Choose
 						a Time</label>
-						<select class="form-select" id="specificSizeSelect"
+						<select class="form-select col-6" id="specificSizeSelect"
 							name="selectedTime" required="required">
 							<option selected>Choose...</option>
 							<option value="10:00:00.00" id="10AM">10AM</option>
@@ -187,6 +189,7 @@ if (loginSession == null || loginSession.getAttribute("isLoggedIn") == null || !
 				if (status == "success") {
 					swal("Done!", "New Booking has Created", "success");
 				}
+			
 			</script>
 			
 

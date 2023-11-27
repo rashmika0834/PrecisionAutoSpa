@@ -52,7 +52,13 @@ h1 {
 }
 
 .form-control {
-	width: 100vh;
+	width: 100%;
+	padding-left: 50;
+}
+
+.form-select{
+		width: 90vh;
+		padding-left: 50;
 }
 
 .mainCont{

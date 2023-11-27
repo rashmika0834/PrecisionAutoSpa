@@ -4,7 +4,7 @@
 
 String code = request.getParameter("code");
 
-// Retrieve the 'session_state' parameter from the URL
+
 String sessionState = request.getParameter("session_state");
 
 HttpSession loginSession = request.getSession();
