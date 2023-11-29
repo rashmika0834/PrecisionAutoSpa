@@ -208,8 +208,8 @@ if (loginSession == null || loginSession.getAttribute("isLoggedIn") == null || !
 				<thead class="table-dark">
 					<tr>
 						<th scope="col">Booking ID</th>
-						<th scope="col">Name</th>
-						<th scope="col">DOS</th>
+						<th scope="col">Message</th>
+						<th scope="col">Date</th>
 						<th scope="col">Mileage</th>
 						<th scope="col">Location</th>
 						<th scope="col"></th>
@@ -226,7 +226,7 @@ if (loginSession == null || loginSession.getAttribute("isLoggedIn") == null || !
 					while (resultSet.next()) {
 
 						String bookingId = resultSet.getString("booking_id");
-						String username = resultSet.getString("username");
+						String username = resultSet.getString("message");
 						String mileage = resultSet.getString("mileage");
 						String location = resultSet.getString("location");
 						String date = resultSet.getString("date");

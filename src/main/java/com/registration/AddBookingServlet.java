@@ -24,14 +24,19 @@ public class AddBookingServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String username = request.getParameter("username");
-        String contact = request.getParameter("contact");
-        String mileageStr = request.getParameter("mileage");
-        String vehicle_no = request.getParameter("vehicle_no");
-        String location = request.getParameter("location");
-        String message = request.getParameter("message");
-        String dateStr = request.getParameter("date");
-        String selectedTimeValue = request.getParameter("selectedTime");
+    	
+
+    	 String username = encodeHTML(request.getParameter("username"));
+         String contact = encodeHTML(request.getParameter("contact"));
+         String mileageStr = encodeHTML(request.getParameter("mileage"));
+         String vehicle_no = encodeHTML(request.getParameter("vehicle_no"));
+         String location = encodeHTML(request.getParameter("location"));
+         String message = encodeHTML(request.getParameter("message"));
+         String dateStr = encodeHTML(request.getParameter("date"));
+         String selectedTimeValue = encodeHTML(request.getParameter("selectedTime"));
+
+    	
+
 
         int mileage = Integer.parseInt(mileageStr);
 
@@ -63,6 +68,7 @@ public class AddBookingServlet extends HttpServlet {
 
             Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://172.187.178.153:3306/isec_assessment2?useSSL=false", "isec", "EUHHaYAmtzbv");
+            
             PreparedStatement pst = con.prepareStatement("INSERT INTO vehicle_service(date, time, location, vehicle_no, mileage, message, username) VALUES (?, ?, ?, ?, ?, ?, ?)");
 
             pst.setDate(1, sqlDate); 
@@ -99,4 +105,7 @@ public class AddBookingServlet extends HttpServlet {
 		
 		
 	}
+	  private String encodeHTML(String input) {
+	        return input == null ? "" : input.replaceAll("<", "&lt;").replaceAll(">", "&gt;");
+	    }
 }
